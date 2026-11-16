@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zheng Jiacheng - Interactive Resume</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 40px; padding: 30px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        header h1 { color: #0f766e; font-size: 2.5em; margin-bottom: 5px; font-weight: 600; letter-spacing: 1px; }
+        header p { color: #666; font-size: 1.1em; margin-bottom: 15px; font-weight: 500; }
+        .contact-info { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; font-size: 0.9em; color: #555; }
+        .contact-info span { background: #e6f4ea; padding: 6px 15px; border-radius: 20px; transition: background 0.3s; }
+        .contact-info span:hover { background: #cce8d5; }
+        .section { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        .section h2 { color: #0f766e; border-bottom: 2px solid #e6f4ea; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; text-transform: uppercase; letter-spacing: 1px; }
+        .item-card { border-left: 4px solid #0f766e; padding: 15px 20px; background: #fafafa; border-radius: 0 8px 8px 0; margin-bottom: 20px; transition: all 0.3s ease; }
+        .item-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 118, 110, 0.15); background: #fff; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
+        .item-card h3 { color: #111; font-size: 1.2em; margin: 0; }
+        .item-date { color: #777; font-size: 0.9em; font-style: italic; }
+        .item-subtitle { color: #555; font-weight: 500; font-size: 0.95em; margin-bottom: 10px; }
+        .item-card ul { margin-left: 20px; color: #444; font-size: 0.95em; }
+        .item-card li { margin-bottom: 6px; }
+        #skillsChart { width: 100%; height: 380px; }
+        .lang-tags { display: flex; gap: 10px; margin-top: 10px; }
+        .lang-tag { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 5px 15px; border-radius: 6px; font-weight: 600; font-size: 0.9em; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="fade-in">
+        <h1>Zheng Jiacheng</h1>
+        <p>Physics Undergraduate | Seeking Research Opportunities</p>
+        <div class="contact-info">
+            <span>📧 2643389075@qq.com</span>
+            <span>📱 15163450657</span>
+            <span>📍 Tianjin, China</span>
+        </div>
+    </header>
+
+    <section class="section fade-in">
+        <h2>Summary</h2>
+        <p>Highly motivated Physics undergraduate at Nankai University with a strong foundation in logical thinking and problem-solving. Demonstrated self-learning ability by independently developing a WeChat vocabulary Mini Program with core algorithms. Passionate about data processing and visualization, seeking to apply analytical skills and programming basics to practical research and projects.</p>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Skills Visualization</h2>
+        <div id="skillsChart"></div>
+        <div class="lang-tags">
+            <div class="lang-tag">Chinese (Native)</div>
+            <div class="lang-tag">English (Conversational)</div>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Education</h2>
+        <div class="item-card">
+            <div class="item-header">
+                <h3>Nankai University</h3>
+                <span class="item-date">Sep 2026 – Jun 2030 (Est.)</span>
+            </div>
+            <div class="item-subtitle">B.S. in Physics</div>
+            <p style="color:#555; font-size:0.95em;">Relevant Coursework: Advanced Mathematics, Linear Algebra, Mechanics, C++</p>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Projects</h2>
+        <div class="item-card">
+            <div class="item-header">
+                <h3>WeChat Mini Program for Vocabulary Learning</h3>
+                <span class="item-date">Sep 2026 – Present</span>
+            </div>
+            <div class="item-subtitle">Independent Developer</div>
+            <ul>
+                <li>Independently learned WeChat Mini Program development tools and built a fully functional vocabulary learning application from scratch.</li>
+                <li>Developed core features including word quizzes and a mistake notebook, significantly improving the user learning experience.</li>
+                <li>Designed a vocabulary review mechanism based on the Ebbinghaus forgetting curve to optimize memory efficiency.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section fade-in">
+        <h2>Awards</h2>
+        <div class="item-card" style="border-left-color: #f59e0b;">
+            <div class="item-header">
+                <h3>"Young Master of Sinology" Title</h3>
+                <span class="item-date">Nov 2024</span>
+            </div>
+            <div class="item-subtitle">China University Student Online (Ministry of Education)</div>
+            <ul>
+                <li>Awarded for excellent performance in the "Learning from the Past to Understand the Present" Sinology Knowledge Quiz during the national college cultural heritage campaign.</li>
+                <li>Demonstrated strong comprehensive knowledge, cultural literacy, and active participation in extracurricular activities.</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    var chartDom = document.getElementById('skillsChart');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        tooltip: { trigger: 'item' },
+        radar: {
+            indicator: [
+                { name: 'Python', max: 100 },
+                { name: 'C++', max: 100 },
+                { name: 'Logical Thinking', max: 100 },
+                { name: 'Literature Search', max: 100 },
+                { name: 'Microsoft Office', max: 100 }
+            ],
+            axisName: { color: '#555', fontWeight: 'bold' },
+            splitArea: { areaStyle: { color: ['#f8fafc', '#f1f5f9'] } }
+        },
+        series: [{
+            name: 'Proficiency',
+            type: 'radar',
+            data: [
+                {
+                    value: [65, 60, 85, 75, 80],
+                    name: 'Skill Assessment',
+                    areaStyle: { color: 'rgba(15, 118, 110, 0.4)' },
+                    lineStyle: { color: '#0f766e', width: 2 },
+                    itemStyle: { color: '#0f766e' }
+                }
+            ]
+        }]
+    };
+    option && myChart.setOption(option);
+
+    window.addEventListener('resize', function() {
+        myChart.resize();
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    
+    const appearOptions = {
+        threshold: 0.1, 
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('active');
+                appearOnScroll.unobserve(entry.target); 
+            }
+        });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+
+</body>
+</html>
